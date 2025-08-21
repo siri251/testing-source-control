@@ -1,0 +1,243 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Acme Accounts",
+        "description": "Swagger Documentation for Acme Accounts",
+        "version": "v1.0.0",
+        "contact": {
+            "name": "Charles Livington",
+            "url": "",
+            "email": "charles.liv@acmebank.com"
+        }
+    },
+    "paths": {
+        "/v1/acme/user": {
+            "summary": "Acme Account operations",
+            "x-description": "Acme Account operations",
+            "post": {
+                "requestBody": {
+                    "$ref": "#/components/requestBodies/accountRequest",
+                    "required": true
+                },
+                "operationId": "createAccount",
+                "summary": "Create Account in Acme Bank",
+                "description": "Create Account in Acme Bank",
+                "responses": {
+                    "201": {
+                        "description": "Account Created"
+                    }
+                }
+            },
+            "get": {
+                "operationId": "getAccount",
+                "summary": "Get User Account By Id",
+                "description": "Get User Account By id",
+                "responses": {
+                    "200": {
+                        "description": "Account Successfuly Retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "description": "",
+                                    "$ref": "#/components/schemas/Account"
+                                }
+                            }
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "$ref": "#/components/parameters/account_id"
+                    }
+                ]
+            }
+        }
+    },
+    "servers": [
+        {
+            "x-name": "acme-bank-prod",
+            "x-schema": "http://",
+            "x-hostName": "34.121.145.236:9081",
+            "url": "http://34.121.145.236:9081/v1/acme/accounts",
+            "x-basePath": "/v1/acme/accounts"
+        }
+    ],
+    "tags": [],
+    "security": [],
+    "components": {
+        "parameters": {
+            "customer_id": {
+                "name": "customer_id",
+                "required": false,
+                "style": "simple",
+                "in": "header",
+                "schema": {
+                    "description": "",
+                    "type": "string"
+                }
+            },
+            "account_id": {
+                "name": "account_id",
+                "required": false,
+                "style": "simple",
+                "in": "header",
+                "schema": {
+                    "description": "",
+                    "type": "string"
+                }
+            }
+        },
+        "schemas": {
+            "AccountRequest": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string",
+                        "example": "Charles"
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "example": "Livington"
+                    },
+                    "accountType": {
+                        "type": "string",
+                        "example": "Savings"
+                    },
+                    "DOB": {
+                        "type": "number",
+                        "example": 19780323
+                    },
+                    "nominee1": {
+                        "type": "string",
+                        "example": "Glenda Livington"
+                    },
+                    "nominee2": {
+                        "type": "string",
+                        "example": "Lily Livington"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "356 Clive Rd. OR"
+                    }
+                }
+            },
+            "Account": {
+                "type": "object",
+                "properties": {
+                    "accountId": {
+                        "type": "number",
+                        "example": 890078308738
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "example": "Charles"
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "example": "Livington"
+                    },
+                    "accountType": {
+                        "type": "string",
+                        "example": "Savings"
+                    },
+                    "DOB": {
+                        "type": "number",
+                        "example": 19780323
+                    },
+                    "nominee1": {
+                        "type": "string",
+                        "example": "Glenda Livington"
+                    },
+                    "nominee2": {
+                        "type": "string",
+                        "example": "Lily Livington"
+                    },
+                    "address": {
+                        "type": "string",
+                        "example": "356 Clive Rd. OR"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "200": {
+                "description": "Account",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/components/schemas/Account"
+                        }
+                    }
+                }
+            }
+        },
+        "requestBodies": {
+            "accountRequest": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "description": "",
+                            "$ref": "#/components/schemas/AccountRequest"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "x-mock": true,
+    "x-metadata": {
+        "metadata": {
+            "swaggerName": "4e9b550938ac4885a331e8b9d190f35b",
+            "revision": 1,
+            "documentation": [],
+            "category": [
+                {
+                    "name": "Unsorted",
+                    "paths": []
+                },
+                {
+                    "name": "Accounts",
+                    "paths": [
+                        "/v1/acme/user"
+                    ],
+                    "definitions": []
+                }
+            ],
+            "models": [
+                {
+                    "dataDictionaryId": "637b5f0a7702bd64f71ec23f",
+                    "dataDictionaryRevision": "Revision 1",
+                    "dataDictionary": "User Accounts",
+                    "modelName": "AccountRequest",
+                    "modelId": "d7cf9771496a43eebbb08a2ea7b05f8d",
+                    "revision": 1
+                },
+                {
+                    "dataDictionaryId": "637b5f0a7702bd64f71ec23f",
+                    "dataDictionaryRevision": "Revision 1",
+                    "dataDictionary": "User Accounts",
+                    "modelName": "Account",
+                    "modelId": "f9627de02b794916bcf392c3dc5af862",
+                    "revision": 1
+                },
+                {
+                    "dataDictionaryId": "637b5f0a7702bd64f71ec23f",
+                    "dataDictionaryRevision": "Revision 1",
+                    "dataDictionary": "User Accounts",
+                    "modelName": "AccountRequest",
+                    "modelId": "d7cf9771496a43eebbb08a2ea7b05f8d",
+                    "revision": 1
+                },
+                {
+                    "dataDictionaryId": "637b5f0a7702bd64f71ec23f",
+                    "dataDictionaryRevision": "Revision 1",
+                    "dataDictionary": "User Accounts",
+                    "modelName": "Account",
+                    "modelId": "f9627de02b794916bcf392c3dc5af862",
+                    "revision": 1
+                }
+            ]
+        }
+    }
+}
